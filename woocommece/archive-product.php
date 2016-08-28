@@ -64,7 +64,9 @@ get_header( 'shop' ); ?>
 
 			<?php woocommerce_product_loop_start(); ?>
 
-				<?php woocommerce_product_subcategories(); ?>
+				if ( !strpos($_SERVER['REQUEST_URI'], "swoof")) {
+					woocommerce_product_subcategories();
+					} ?>
 
 				<?php while ( have_posts() ) : the_post(); ?>
 
