@@ -7,9 +7,8 @@ Just copy the archive-product.php to your current theme folder/woocommerce/
 ## Manual installation if you have different version of archive-product.php or custom code there ##
 Instead of the line 67 that was `<?php woocommerce_product_subcategories(); ?>` put :
 ```php
-<?php $vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
-$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
-if ( !$vendor_id ) {
+if ( !strpos($_SERVER['REQUEST_URI'], "swoof")) {
     woocommerce_product_subcategories();
 } ?>
 ```
+Note: If you had changed the default search slug "swoof" in WOOF settings->Advanced->Options->Search slug update the code above with your keyword instead of swoof.
